@@ -1,3 +1,4 @@
+import { CheckService } from '../domain/use-cases/checks/check-service';
 import { CronService } from './cron/cron-service';
 
 export class ServerApp {
@@ -5,7 +6,7 @@ export class ServerApp {
     console.log('Server started!');
 
     CronService.createJob('*/5 * * * * *', () => {
-      console.log('Cron job running every 5 seconds', new Date());
+      new CheckService().execute('https://isilmas.isil.pe/');
     });
   }
 }
