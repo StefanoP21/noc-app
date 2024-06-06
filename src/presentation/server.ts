@@ -5,8 +5,13 @@ export class ServerApp {
   public static start() {
     console.log('Server started!');
 
+    const url = 'https://www.isdin.com/es-PE/';
+
     CronService.createJob('*/5 * * * * *', () => {
-      new CheckService().execute('https://isilmas.isil.pe/');
+      new CheckService(
+        () => console.log(`Success: ${url}`),
+        (error) => console.log(`Error: ${error}`)
+      ).execute(url);
     });
   }
 }
