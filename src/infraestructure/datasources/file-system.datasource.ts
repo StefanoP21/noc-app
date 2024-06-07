@@ -12,6 +12,7 @@ export class FileSystemDataSource implements LogDatasource {
     this.createLogsFile();
   }
 
+  //* Create the logs files if they don't exist
   private createLogsFile = () => {
     if (!fs.existsSync(this.logPath)) {
       fs.mkdirSync(this.logPath);
@@ -33,6 +34,7 @@ export class FileSystemDataSource implements LogDatasource {
 
     if (newLog.level === LogSeverityLevel.low) return Promise.resolve();
 
+    //* Save the log in the corresponding file
     const newLogPath =
       newLog.level === LogSeverityLevel.medium
         ? this.mediumLogsPath
@@ -45,6 +47,7 @@ export class FileSystemDataSource implements LogDatasource {
 
   private getLogsFromFile = (path: string): LogEntity[] => {
     const content = fs.readFileSync(path, 'utf-8');
+    //* Split the content by line and parse each line as a LogEntity
     const logs = content.split('\n').map((log) => LogEntity.fromJson(log));
 
     return logs;
