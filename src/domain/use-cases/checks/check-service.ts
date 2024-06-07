@@ -1,3 +1,6 @@
+import { LogEntity, LogSeverityLevel } from '../../entities/log.entity';
+import { LogRepository } from '../../repository/log.repository';
+
 interface CheckServiceUseCase {
   execute: (url: string) => Promise<boolean>;
 }
@@ -7,8 +10,9 @@ type ErrorCallback = (error: string) => void;
 
 export class CheckService implements CheckServiceUseCase {
   constructor(
-    private successCallback: SuccessCallback,
-    private errorCallback: ErrorCallback
+    private readonly logRepository: LogRepository,
+    private readonly successCallback: SuccessCallback,
+    private readonly errorCallback: ErrorCallback
   ) {}
 
   public async execute(url: string): Promise<boolean> {
@@ -19,10 +23,26 @@ export class CheckService implements CheckServiceUseCase {
         throw new Error(`Error on check service ${url}`);
       }
 
+      //* Log success
+      const log = new LogEntity(
+        LogSeverityLevel.low,
+        `Service ${url} is working`
+      );
+
+      this.logRepository.saveLog(log);
       this.successCallback();
+
       return true;
     } catch (error) {
-      this.errorCallback(`${error}`);
+      const errorMessage = `${error}`;
+      const log = new LogEntity(
+        LogSeverityLevel.low,
+        `Error on check service ${url}`
+      );
+
+      this.logRepository.saveLog(log);
+      this.errorCallback(errorMessage);
+
       return false;
     }
   }
