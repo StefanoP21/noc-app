@@ -14,7 +14,7 @@ export class ServerApp {
 
     const url = 'https://google.com';
 
-    // const emailService = new EmailService();
+    const emailService = new EmailService(fileSystemLogRepository);
     // emailService.sendEmail({
     //   to: 'aldair112012@outlook.es',
     //   subject: 'Logs del sistema',
@@ -23,7 +23,7 @@ export class ServerApp {
     //   <p>Ver logs</p>
     //   `,
     // });
-    // emailService.sendEmailWithFileSystemLogs(['aldair112012@outlook.es']);
+    emailService.sendEmailWithFileSystemLogs(['aldair112012@outlook.es']);
 
     // CronService.createJob('*/5 * * * * *', () => {
     //   new CheckService(
