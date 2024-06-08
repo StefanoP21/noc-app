@@ -5,3 +5,6 @@ dist/
 
 # logs
 logs/
+
+# env files
+.env
