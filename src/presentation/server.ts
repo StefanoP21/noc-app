@@ -11,14 +11,14 @@ export class ServerApp {
   public static start() {
     console.log('Server started!');
 
-    const url = 'http://localhost:3000/';
+    const url = 'https://google.com';
 
-    CronService.createJob('*/5 * * * * *', () => {
-      new CheckService(
-        fileSystemLogRepository,
-        () => console.log(`Success: ${url}`),
-        (error) => console.log(`Error: ${error}`)
-      ).execute(url);
-    });
+    // CronService.createJob('*/5 * * * * *', () => {
+    //   new CheckService(
+    //     fileSystemLogRepository,
+    //     () => console.log(`Success: ${url}`),
+    //     (error) => console.log(`Error: ${error}`)
+    //   ).execute(url);
+    // });
   }
 }
