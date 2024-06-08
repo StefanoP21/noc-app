@@ -14,15 +14,16 @@ export class ServerApp {
 
     const url = 'https://google.com';
 
-    const emailService = new EmailService();
-    emailService.sendEmail({
-      to: 'aldair112012@outlook.es',
-      subject: 'Logs del sistema',
-      html: `
-      <h3>Logs de sistema - NOC</h3>
-      <p>Ver logs</p>
-      `,
-    });
+    // const emailService = new EmailService();
+    // emailService.sendEmail({
+    //   to: 'aldair112012@outlook.es',
+    //   subject: 'Logs del sistema',
+    //   html: `
+    //   <h3>Logs de sistema - NOC</h3>
+    //   <p>Ver logs</p>
+    //   `,
+    // });
+    // emailService.sendEmailWithFileSystemLogs(['aldair112012@outlook.es']);
 
     // CronService.createJob('*/5 * * * * *', () => {
     //   new CheckService(
