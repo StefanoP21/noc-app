@@ -15,7 +15,7 @@ const logSchema = new Schema({
   },
   createdAt: {
     type: Date,
-    default: Date.now,
+    default: new Date(),
   },
 });
 

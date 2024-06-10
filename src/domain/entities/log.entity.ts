@@ -32,7 +32,7 @@ export class LogEntity {
 
     //* Check if the required fields are present
     if (!level || !message || !origin || !createdAt) {
-      throw new Error('Invalid log entity');
+      throw new Error('Missing required fields in log entity');
     }
 
     const log = new LogEntity({ level, message, origin, createdAt });
@@ -45,7 +45,7 @@ export class LogEntity {
 
     //* Check if the required fields are present
     if (!level || !message || !origin || !createdAt) {
-      throw new Error('Invalid log entity');
+      throw new Error('Missing required fields in log entity');
     }
 
     const log = new LogEntity({ level, message, origin, createdAt });
