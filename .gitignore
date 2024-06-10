@@ -11,3 +11,6 @@ logs/
 
 # mongo
 mongo/
+
+# postgres
+postgres/

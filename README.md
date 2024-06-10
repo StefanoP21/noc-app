@@ -20,6 +20,14 @@ npm install
 
 Cree un archivo .env en la carpeta raíz de su proyecto y añada sus variables. Consulte .env.template para obtener ayuda.
 
+### Levantar las Bases de Datos
+
+Para levantar la base de datos, ejecute:
+
+```bash
+docker-compose up -d
+```
+
 ### Ejecución en modo de desarrollo
 
 Para iniciar la aplicación en modo de desarrollo, ejecuta:
