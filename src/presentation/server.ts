@@ -3,12 +3,14 @@ import { CheckService } from '../domain/use-cases/checks/check-service';
 import { SendEmailLogs } from '../domain/use-cases/email/send-email-logs';
 import { FileSystemDataSource } from '../infraestructure/datasources/file-system.datasource';
 import { MongoLogDataSource } from '../infraestructure/datasources/mongo-log.datasource';
+import { PostgresLogDatasource } from '../infraestructure/datasources/postgres-log.datasource';
 import { LogRepositoryImpl } from '../infraestructure/repositories/log.repository.impl';
 import { CronService } from './cron/cron-service';
 import { EmailService } from './email/email-service';
 
 const logRepository = new LogRepositoryImpl(
-  new FileSystemDataSource()
+  new PostgresLogDatasource()
+  // new FileSystemDataSource()
   // new MongoLogDataSource()
 );
 
@@ -18,10 +20,10 @@ export class ServerApp {
   public static async start() {
     console.log('Server started!');
 
-    // const url = 'https://google.com';
+    const url = 'https://google.com';
 
-    // const logs = await logRepository.getLogs(LogSeverityLevel.high);
-    // console.log(logs);
+    const logs = await logRepository.getLogs(LogSeverityLevel.high);
+    console.log(logs);
 
     //* Use cases
     // new SendEmailLogs(emailService, logRepository).execute([
