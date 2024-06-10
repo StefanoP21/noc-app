@@ -27,7 +27,21 @@ export class LogEntity {
   }
 
   static fromJson = (json: string): LogEntity => {
-    const { level, message, origin, createdAt }: LogEntity = JSON.parse(json);
+    const { level, message, origin, createdAt }: LogEntityOptions =
+      JSON.parse(json);
+
+    //* Check if the required fields are present
+    if (!level || !message || !origin || !createdAt) {
+      throw new Error('Invalid log entity');
+    }
+
+    const log = new LogEntity({ level, message, origin, createdAt });
+
+    return log;
+  };
+
+  static fromObject = (object: { [key: string]: any }): LogEntity => {
+    const { level, message, origin, createdAt } = object;
 
     //* Check if the required fields are present
     if (!level || !message || !origin || !createdAt) {
