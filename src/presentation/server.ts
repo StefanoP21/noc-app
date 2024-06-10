@@ -20,8 +20,8 @@ export class ServerApp {
 
     // const url = 'https://google.com';
 
-    const logs = await logRepository.getLogs(LogSeverityLevel.high);
-    console.log(logs);
+    // const logs = await logRepository.getLogs(LogSeverityLevel.high);
+    // console.log(logs);
 
     //* Use cases
     // new SendEmailLogs(emailService, logRepository).execute([
