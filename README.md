@@ -22,10 +22,18 @@ Cree un archivo .env en la carpeta raíz de su proyecto y añada sus variables. 
 
 ### Levantar las Bases de Datos
 
-Para levantar la base de datos, ejecute:
+Para levantar las bases de datos, ejecute:
 
 ```bash
 docker-compose up -d
+```
+
+### Prisma Migrate
+
+Para aplicar las migraciones de la base de datos, ejecute:
+
+```bash
+npx prisma migrate dev --name init
 ```
 
 ### Ejecución en modo de desarrollo
