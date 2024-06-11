@@ -18,7 +18,7 @@ npm install
 
 ### Variables de Entorno
 
-Cree un archivo .env en la carpeta raíz de su proyecto y añada sus variables. Consulte .env.template para obtener ayuda.
+Cree un archivo .env y .env.test en la carpeta raíz de su proyecto y añada sus variables. Consulte .env.template para obtener ayuda.
 
 ### Levantar las Bases de Datos
 

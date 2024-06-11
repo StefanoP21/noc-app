@@ -1,3 +1,4 @@
+# dependencies
 node_modules/
 
 # build files
@@ -8,9 +9,15 @@ logs/
 
 # env files
 .env
+.env.test
 
 # mongo
 mongo/
+mongo-test/
 
 # postgres
 postgres/
+postgres-test/
+
+# test
+coverage/
