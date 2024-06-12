@@ -35,7 +35,12 @@ export class LogEntity {
       throw new Error('Missing required fields in log entity');
     }
 
-    const log = new LogEntity({ level, message, origin, createdAt });
+    const log = new LogEntity({
+      level,
+      message,
+      origin,
+      createdAt: new Date(createdAt),
+    });
 
     return log;
   };
@@ -48,7 +53,12 @@ export class LogEntity {
       throw new Error('Missing required fields in log entity');
     }
 
-    const log = new LogEntity({ level, message, origin, createdAt });
+    const log = new LogEntity({
+      level,
+      message,
+      origin,
+      createdAt: new Date(createdAt),
+    });
 
     return log;
   };
