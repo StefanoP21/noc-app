@@ -13,7 +13,7 @@ const severityEnum = {
 export class PostgresLogDatasource implements LogDatasource {
   async saveLog(log: LogEntity): Promise<void> {
     const level = severityEnum[log.level];
-    const newLog = await prisma.log.create({
+    await prisma.log.create({
       data: {
         ...log,
         level: level,
