@@ -68,11 +68,13 @@ npm start
 
 ### Tecnologías
 
+- [TypeScript](https://www.typescriptlang.org/)
 - [Node.js](https://nodejs.org/)
-- [Express.js](https://expressjs.com/)
 - [MongoDB](https://www.mongodb.com/)
 - [Mongoose ODM](https://mongoosejs.com/)
-- [JWT](https://jwt.io/)
+- [PostgreSQL](https://www.postgresql.org/)
+- [Prisma](https://www.prisma.io/)
+- [Docker](https://www.docker.com/)
 
 ### Autor
 
